@@ -58,5 +58,17 @@ public class AddressBookMain {
 		System.out.println("Contact List after edit");
 		user.print(contactStore.getContactList());
 		
+		System.out.println("Enter name of person you want to delete");
+		String contactName = sc.nextLine();
+		if(contactOne.getFirstName().equalsIgnoreCase(contactName) == true)
+			contactStore.remove(contactOne);
+		else if(contactThree.getFirstName().equalsIgnoreCase(contactName) == true)
+			contactStore.remove(contactThree);
+		else if(contactTwo.getFirstName().equalsIgnoreCase(contactName) == true)
+			contactStore.remove(contactTwo);
+		System.out.println("Contact List after deletion");
+		user.print(contactStore.getContactList());
+
+		
 	}
 }
