@@ -26,25 +26,37 @@ public class AddressBookMain {
 		contactTwo.setPhoneNumber("8639012896");
 		contactTwo.setEmail("sailaja@gmail.com");
 		
-		AddressBook address = new AddressBook();
+		AddressBook contactThree = new AddressBook();
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter details of new person firstName,lastName,address,city,state,zip,phoneNumber,Email respectively");
-		address.setFirstName(sc.nextLine());
-		address.setLastName(sc.nextLine());
-		address.setAddress(sc.nextLine());
-		address.setCity(sc.nextLine());
-		address.setState(sc.nextLine());
-		address.setZip(sc.nextLine());
-		address.setPhoneNumber(sc.nextLine());
-		address.setEmail(sc.nextLine());
-		sc.close();
+		contactThree.setFirstName(sc.nextLine());
+		contactThree.setLastName(sc.nextLine());
+		contactThree.setAddress(sc.nextLine());
+		contactThree.setCity(sc.nextLine());
+		contactThree.setState(sc.nextLine());
+		contactThree.setZip(sc.nextLine());
+		contactThree.setPhoneNumber(sc.nextLine());
+		contactThree.setEmail(sc.nextLine());
 
 		ContactStore contactStore = new ContactStore();
 		contactStore.add(contactOne);
 		contactStore.add(contactTwo);
-		contactStore.add(address);
+		contactStore.add(contactThree);
 
 		UserInterface user = new UserInterface();
 		user.print(contactStore.getContactList());
+		
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter name of contact you want to edit");
+		String name = s.nextLine();
+		if(contactOne.getFirstName().equalsIgnoreCase(name) == true)
+			user.edit(contactOne);
+		else if(contactTwo.getFirstName().equalsIgnoreCase(name) == true)
+			user.edit(contactTwo);
+		else if(contactThree.getFirstName().equalsIgnoreCase(name) == true)
+			user.edit(contactThree);
+		System.out.println("Contact List after edit");
+		user.print(contactStore.getContactList());
+		
 	}
 }
