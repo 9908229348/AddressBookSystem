@@ -23,4 +23,17 @@ public class UserInterface {
 		contact.setPhoneNumber(sc.nextLine());
 		contact.setEmail(sc.nextLine());
 	}
+
+	void addContact(AddressBook contactThree) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter details of new person firstName,lastName,address,city,state,zip,phoneNumber,Email respectively");
+		contactThree.setFirstName(sc.nextLine());
+		contactThree.setLastName(sc.nextLine());
+		contactThree.setAddress(sc.nextLine());
+		contactThree.setCity(sc.nextLine());
+		contactThree.setState(sc.nextLine());
+		contactThree.setZip(sc.nextLine());
+		contactThree.setPhoneNumber(sc.nextLine());
+		contactThree.setEmail(sc.nextLine());
+	}
 }
