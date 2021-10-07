@@ -1,17 +1,17 @@
 package addressbookproblems;
 
+import java.util.Scanner;
 import java.util.Set;
 
-import java.util.Scanner;
-
-public class UserInterface {
+public class UserInterfaceTwo {
 	void print(Set<Object> contactList) {
-		for (Object s : contactList) {
-			System.out.println(s);
+		for (Object string : contactList) 
+		{
+			System.out.println(string);
 		}
 	}
-
-	void edit(AddressBook contact) {
+	
+	void edit(AddressBookTwo contact) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Edit the details firstName,lastName,address,city,state,zip,phoneNumber,email respectively");
 		contact.setFirstName(sc.nextLine());
@@ -24,7 +24,7 @@ public class UserInterface {
 		contact.setEmail(sc.nextLine());
 	}
 
-	void addContact(AddressBook contactThree) {
+	void addContact(AddressBookTwo contactThree) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter details of new person firstName,lastName,address,city,state,zip,phoneNumber,Email respectively");
 		contactThree.setFirstName(sc.nextLine());

@@ -1,6 +1,7 @@
 package addressbookproblems;
 
 import java.util.Scanner;
+import java.util.Set;
 
 public class AddressBookMain {
 	public static void main(String[] args) {
@@ -16,7 +17,7 @@ public class AddressBookMain {
 		contactOne.setPhoneNumber("9908229348");
 		contactOne.setEmail("kala@gmail.com");
 
-		AddressBook contactTwo = new AddressBook();
+		AddressBookTwo contactTwo = new AddressBookTwo();
 		contactTwo.setFirstName("Maligi");
 		contactTwo.setLastName("Sailaja");
 		contactTwo.setAddress("3-5");
@@ -33,19 +34,30 @@ public class AddressBookMain {
 		UserInterface user = new UserInterface();
 		user.print(contactStore.getContactList());
 
+		UserInterfaceTwo use = new UserInterfaceTwo();
+		use.print(contactStore.getContactListTwo());
+
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter choice 1.Add the new contact\n 2.Edit Existing contact 3.Remove the contact");
 		int choice = sc.nextInt();
 		switch (choice) {
 		case 1:
-			System.out.println("Enter how many persons you want to add");
-			int n = sc.nextInt();
-			for (int i = 1; i <= n; i++) {
+			System.out.println("Enter 1 to add details to AddressBook and 2 to add to AddressBookTwo");
+			int select = sc.nextInt();
+			if (select == 1) {
 				AddressBook contact = new AddressBook();
 				user.addContact(contact);
 				contactStore.add(contact);
 				System.out.println("Contact List after add");
 				user.print(contactStore.getContactList());
+				use.print(contactStore.getContactListTwo());
+			} else if (select == 2) {
+				AddressBookTwo contact = new AddressBookTwo();
+				use.addContact(contact);
+				contactStore.add(contact);
+				System.out.println("Contact List after add");
+				user.print(contactStore.getContactList());
+				use.print(contactStore.getContactListTwo());
 			}
 			break;
 		case 2:
@@ -55,9 +67,10 @@ public class AddressBookMain {
 			if (contactOne.getFirstName().equalsIgnoreCase(name) == true)
 				user.edit(contactOne);
 			else if (contactTwo.getFirstName().equalsIgnoreCase(name) == true)
-				user.edit(contactTwo);
+				use.edit(contactTwo);
 			System.out.println("Contact List after edit");
 			user.print(contactStore.getContactList());
+			use.print(contactStore.getContactListTwo());
 			break;
 		case 3:
 			Scanner scanner = new Scanner(System.in);
@@ -69,6 +82,7 @@ public class AddressBookMain {
 				contactStore.remove(contactTwo);
 			System.out.println("Contact List after deletion");
 			user.print(contactStore.getContactList());
+			use.print(contactStore.getContactListTwo());
 			break;
 		}
 	}
